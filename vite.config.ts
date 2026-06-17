@@ -6,8 +6,15 @@ import manifest from './manifest.json'
 
 export default defineConfig({
   plugins: [
-    tailwindcss(),   // ← Tailwind v4 Vite plugin
+    tailwindcss(),
     react(),
     crx({ manifest }),
   ],
+  build: {
+    rollupOptions: {
+      input: {
+        popup: 'index.html',
+      },
+    },
+  },
 })
